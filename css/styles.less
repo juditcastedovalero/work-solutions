@@ -1,0 +1,403 @@
+// Clases especiales
+.open-sans {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.raleway {
+    font-family: 'Raleway', sans-serif;
+}
+
+@bluelight: #7DCADA;
+@blue: #D1E0EB;
+@bluedark: #0C3C60;
+
+// GENERAL
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    .open-sans;
+}
+
+p,
+.navbar-nav a {
+    font-size: 1.4rem;
+}
+
+p {
+    line-height: 1.5;;
+}
+
+h1 {
+    font-size: calc(2.3rem + 1vw);
+    .raleway;
+}
+
+h2 {
+    font-size: calc(3.2rem + 1vw);
+    .raleway;
+}
+
+h3 {
+    font-size: 2.4rem;
+    .raleway;
+}
+
+button,
+input,
+textarea {
+    font-size: 1.6rem; 
+}
+
+// HEADER
+
+.header {
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    background-color: @bluedark!important;
+}
+
+// MENÚ NAV
+.navbar {
+    background-color: @bluedark!important;
+    padding: 3rem;
+    justify-content: space-between;
+    @media (min-width:1440px) {
+        width: 63%;
+        margin: 0 auto;
+    }
+    p {
+        font-size: 1.8rem;
+        margin-bottom: 0;
+        span {
+            color: @bluelight;
+        }
+        .raleway;
+        @media (min-width: 768px) {
+            font-size: 2.2rem;
+        }
+    }
+    .nav-link {
+        color: white!important;
+        margin-left: 2.5rem;
+        transition: color 0.4s ease 0s;
+        &:first-of-type {
+            margin-left: 0;
+        }
+        &:hover {
+            color: @blue!important;
+        }
+    }
+    // Desplegado
+    // Que no se vea el "logo"
+    .navbar-toggler.collapsed {
+        .navbar-brand {
+            opacity: 0;
+        }
+    }
+    
+    button.navbar-toggler  {
+        position: fixed;
+        z-index: 50;
+        left: 85%;
+        border: none;
+    }
+    .collapse {
+        flex-grow: initial;
+    }
+    .collapse.show .navbar-nav {
+        position: fixed;
+        background-color: @bluedark;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .4s;
+        z-index: 30;
+        a {
+            font-size: 1.8rem;
+            position: relative;
+            padding: 1rem;
+            margin-left: 0;
+            &:after {
+                content: "";
+                width: 20rem;
+                height: 0.2rem;
+                background-color: white;
+                position: absolute;
+                bottom: 0;
+                left: -5rem;
+            }
+            &:last-of-type:after {
+                width: 0;
+            }
+        }
+    }
+    .collapsing {
+        position:relative;
+        height:0!important;
+        overflow:hidden;
+    }
+}
+
+// Hero
+.hero {
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: @bluedark;
+    height: 80vh;
+    text-align: center;
+    position: relative;
+    p {
+        font-size: 1.3rem;
+        @media (min-width: 768px) {
+            font-size: 1.8rem;
+        }
+    }
+    .hero-content {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 2rem 0;
+        background-color: rgba(255, 255, 255, 0.85);
+        p {
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 0.8rem;
+        }
+    }
+}
+
+.main {
+    @media (min-width:1440px) {
+        width: 60%;
+        margin: 0 auto;
+    }
+}
+.contenido-main {
+    @media (min-width:1440px) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 3rem;
+        margin-top: 6rem;
+        margin-bottom: 3rem;
+    }
+    & > div {
+        background-color: @bluedark!important;
+        text-align: center;
+        padding: 5rem 3.5rem 4rem 3.5rem;
+        margin-bottom: 4rem;
+        &:last-of-type {
+            margin-bottom: 0;
+            @media (min-width:1440px) {
+                margin-bottom: 4rem;
+            }
+        }
+        h3 {
+            color: @blue;
+            margin-bottom: 1.5rem;
+        }
+        p {
+            color: white;
+        }
+    }
+}
+
+
+// Sobre mí
+.sobre-mi {
+    text-align: center;
+    background-color: @blue;
+    padding: 5rem 3.5rem 4rem 3.5rem;
+    h2 {
+        margin-bottom: 3.5rem;
+    }
+    p {
+        @media (min-width:1440px) {
+            width: 38%;
+            margin: 0 auto;
+            margin-bottom: 5rem;
+        }
+    }
+    button {
+        margin-bottom: 2rem;
+    }
+}
+
+// Contacto
+.contacto {
+    background-color: @bluedark;
+    color: white;
+    text-align: center;
+    padding: 6rem 3.5rem 4rem 3.5rem;
+    h2 {
+        margin-bottom: 3.5rem;
+        @media (min-width:972px) {
+            margin-bottom: 7rem;
+        }
+    }
+    p {
+        line-height: 1.5rem;
+        &:last-of-type {
+            margin-bottom: 3.5rem;
+        }
+    }
+    // Mapa
+    iframe {
+        max-width: 100%;
+        margin-bottom: 3.5rem;
+        width: 400px;
+        height: 300px;
+        @media (min-width:425px) {
+            width: 80%;
+        }
+        @media (min-width:768px) {
+            width: 60%;
+        }
+        @media (min-width:972px) {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .direction {
+        @media (min-width:972px) {
+            display: none;
+        }
+        @media (min-width:1440px) {
+            display: none;
+        }
+    }
+    .form-direction-text {
+        display: none;
+        @media (min-width:972px) {
+            display: block;
+        }
+    }
+    .info-contacto {
+        @media (min-width:972px) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            width: 100%;
+            margin: 0 auto;
+        }
+        @media (min-width:1440px) {
+            width: 62%;
+        }
+    }
+    // formulario
+    form {
+        @media (min-width:425px) {
+            width: 80%;
+            margin: 0 auto;
+        }
+        @media (min-width:768px) {
+            width: 60%; 
+        }
+        @media (min-width:972px) {
+            width: 85%; 
+        }
+        @media (min-width:1440px) {
+            width: 70%; 
+        }
+        label {
+            display: block;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+        input,
+        textarea {
+            width: 100%;
+            padding: 1rem 2rem;
+            margin-bottom: 0.5rem;
+        }
+        textarea {
+            margin-bottom: 0;
+        }
+        input::placeholder,
+        textarea::placeholder {
+            font-size: 1.5rem;
+            color: @bluedark;
+        }
+        .btn-text {
+            margin-top: 0.4rem;
+            @media (min-width:972px) {
+                display: inline-block;
+                width: auto;
+                display: block;
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+.direction a,
+.form-direction-text a {
+    color: white;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+// Footer
+.footer {
+    background-color: @bluedark;
+    color: white;
+    text-align: center;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    
+    .footer-content {
+        @media (min-width:1440px) {
+            display: flex;
+            width: 60%;
+            margin: 0 auto;
+            justify-content: space-between;
+        }
+    }
+
+    p {
+        margin-bottom: 2rem;
+    }
+    .icons-footer {
+        display: flex;
+        justify-content: center;
+        figure {
+            margin-left: 1.5rem;
+            &:first-of-type {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+// Button
+.btn-text {
+    color: white;
+    border: inherit;
+    padding: 0.7rem 3rem;
+    margin-top: 0.5rem;
+}
+.btn-blue-l {
+    background-color: rgba(110, 164, 202, 1);
+    transition: color 0.4s ease 0s;
+    &:hover {
+        color: @bluedark;
+    }
+}
+
+.btn-blue-d {
+    background-color: @bluedark;
+    transition: background-color 0.4s ease 0s;
+    &:hover {
+        background-color: #39729B;
+    }
+}
